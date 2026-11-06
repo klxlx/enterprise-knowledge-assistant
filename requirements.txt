@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+langchain-core
+langchain-community
+langchain-postgres
+psycopg[binary]
+pgvector
+langchain-text-splitters
+dashscope
+pypdf
+python-docx
+python-dotenv
+pytest
+httpx

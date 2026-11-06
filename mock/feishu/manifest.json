@@ -1,0 +1,36 @@
+{
+  "folder_token": "mock-folder-001",
+  "note": "字段结构与飞书云文档接口保持一致：token 对应 file_token/document_id，type=docx 的走 raw_content 接口。接入真实环境时把 _list_files/_download/_raw_content 换成 HTTP 调用即可。",
+  "files": [
+    {
+      "token": "fldcn-doc-0001",
+      "name": "新人第一周工作清单.txt",
+      "type": "docx",
+      "path": "新人第一周工作清单.txt",
+      "scope": "通用",
+      "visibility": "all",
+      "edited_time": "2026-10-16T09:20:00+08:00",
+      "owner": "人力资源部"
+    },
+    {
+      "token": "fldcn-file-0002",
+      "name": "行政部办公用品申领说明.txt",
+      "type": "file",
+      "path": "行政部办公用品申领说明.txt",
+      "scope": "行政部",
+      "visibility": "all",
+      "edited_time": "2026-10-15T14:05:00+08:00",
+      "owner": "行政部"
+    },
+    {
+      "token": "fldcn-file-0003",
+      "name": "客服部客户投诉处理规范.txt",
+      "type": "file",
+      "path": "客服部客户投诉处理规范.txt",
+      "scope": "客户服务部",
+      "visibility": "staff",
+      "edited_time": "2026-10-16T10:40:00+08:00",
+      "owner": "客户服务部"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+employee_id,name,department,title,employee_type,responsibilities,contact,keywords,scope,visibility
+emp-001,王工,客户服务部,售后技术支持,主管,扫地机器人故障排查、售后维修、备件申请,分机 8001 / wang@example.com,售后|维修|故障|报修|备件,通用,all
+emp-002,李敏,人力资源部,招聘与员工关系,主管,入职办理、社保公积金、劳动合同、考勤制度,分机 8010 / limin@example.com,入职|社保|公积金|合同|考勤|打卡,人力资源部,all
+emp-003,张伟,人力资源部,薪酬绩效专员,员工,薪资核算、绩效制度、调薪流程,分机 8011 / zhangwei@example.com,薪资|工资|绩效|调薪,人力资源部,staff
+emp-004,陈静,行政部,行政专员,员工,工牌门禁、办公用品、会议室预订、快递收发,分机 8020 / chenjing@example.com,工牌|门禁|办公用品|会议室|快递,行政部,all
+emp-005,刘洋,财务部,费用会计,员工,费用报销、差旅标准、发票问题,分机 8030 / liuyang@example.com,报销|差旅|发票|费用,财务部,all
+emp-006,赵鹏,研发部,硬件工程师,员工,扫地机器人结构设计、传感器选型、样机验证,分机 8040 / zhaopeng@example.com,硬件|结构|传感器|样机,研发部,all
+emp-007,孙悦,研发部,软件工程师,员工,ECOVACS HOME App、固件升级、配网问题,分机 8041 / sunyue@example.com,App|固件|配网|软件|升级,研发部,all
+emp-008,周涛,供应链部,采购主管,主管,物料采购、供应商对接、来料异常处理,分机 8050 / zhoutao@example.com,采购|供应商|物料|来料,供应链部,all
+emp-009,吴倩,市场部,品牌经理,主管,品牌宣传、活动物料、对外统一口径,分机 8060 / wuqian@example.com,品牌|宣传|活动|物料,市场部,all
+emp-010,郑凯,信息技术部,IT 支持,员工,账号权限、电脑网络、系统登录故障,分机 8070 / zhengkai@example.com,IT|账号|权限|电脑|网络|登录,信息技术部,all

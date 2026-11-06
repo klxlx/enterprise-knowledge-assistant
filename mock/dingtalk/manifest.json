@@ -1,0 +1,14 @@
+{
+  "space_id": "mock-space-001",
+  "note": "字段结构与钉钉钉盘「文件列表」接口保持一致，接入真实环境时把 _load_manifest/_download 换成 HTTP 调用即可。",
+  "files": [
+    {
+      "file_id": "dt-0002",
+      "name": "X20 Pro 充电说明.txt",
+      "path": "X20 Pro 充电说明.txt",
+      "scope": "X20 Pro",
+      "modified_time": "2026-10-14T10:05:00+08:00",
+      "size": 380
+    }
+  ]
+}

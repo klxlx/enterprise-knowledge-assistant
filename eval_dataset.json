@@ -1,0 +1,269 @@
+{
+  "description": "检索与问答效果评测集。expected_keywords 是期望出现在检索片段（以及答案）里的要点；expected_tool 是期望模型调用的工具，用于统计工具调用正确率；expect_no_answer 表示知识库里没有这个问题，理想结果是检索为空、机器人明确说查不到。改动检索参数、提示词或工具定义后跑一遍，看指标是涨还是跌。",
+  "cases": [
+    {
+      "id": "wear-15c",
+      "question": "15度应该穿什么？",
+      "expected_source": "天气预报穿衣参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": ["毛衣", ["风衣", "夹克", "外套"]]
+    },
+    {
+      "id": "wear-diff",
+      "question": "早晚温差大应该怎么穿？",
+      "expected_source": "天气预报穿衣参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": ["分层"]
+    },
+    {
+      "id": "wear-rain",
+      "question": "下雨天出门穿什么鞋比较合适？",
+      "expected_source": "天气预报穿衣参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["防水鞋", "防水的鞋", "防水材质", "雨鞋", "防水涂层"]]
+    },
+    {
+      "id": "wear-wind",
+      "question": "大风天穿衣服要注意什么？",
+      "expected_source": "天气预报穿衣参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": ["防风"]
+    },
+    {
+      "id": "wear-people",
+      "question": "老人和小孩穿衣要注意什么？",
+      "expected_source": "天气预报穿衣参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["多穿一层", "多穿一件", "多穿"]]
+    },
+    {
+      "id": "wear-feel",
+      "question": "决定穿多少应该看气温还是别的？",
+      "expected_source": "天气预报穿衣参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": ["体感温度"]
+    },
+    {
+      "id": "robot-dock",
+      "question": "扫地机器人的充电座应该放在哪里？",
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["平整", "平坦"], ["障碍物", "障碍", "遮挡", "不要放物品", "不要摆放物品"]]
+    },
+    {
+      "id": "robot-filter-wash",
+      "question": "X20 Pro 的滤网可以水洗吗？",
+      "expected_source": "X20 Pro 滤网维护说明.txt",
+      "expected_tool": "search_knowledge",
+      "expected_tool_args": {"scope": "X20 Pro"},
+      "expected_keywords": [["晾干", "干透", "完全干", "晾好"]]
+    },
+    {
+      "id": "robot-filter-cycle",
+      "question": "滤网多久清理一次？",
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["每周", "2周", "两周", "型号", "机型"]]
+    },
+    {
+      "id": "robot-mop",
+      "question": "拖布多久清洗一次？",
+      "role": "staff",
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["每次使用后", "每次用完", "用完后"]]
+    },
+    {
+      "id": "robot-return",
+      "question": "机器回不了充电座应该怎么办？",
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["传感器", "极片", "极板", "触点"],
+                             ["遮挡", "障碍物", "阻挡", "通畅"]]
+    },
+    {
+      "id": "robot-idle",
+      "question": "扫地机器人长期不用要注意什么？",
+      "role": "staff",
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["充满电", "把电充满", "电量充满"]]
+    },
+    {
+      "id": "robot-carpet",
+      "question": "长毛地毯和潮湿地面怎么处理？",
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": ["禁区"]
+    },
+    {
+      "id": "robot-cleaner",
+      "question": "可以用洗洁精当清洁液吗？",
+      "agent_only": true,
+      "expected_source": "扫地机器人使用与保养参考.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["水泵", "损坏机器", "管路", "专用清洁液", "清洁剂"]]
+    },
+    {
+      "id": "weather-today",
+      "question": "北京今天天气怎么样？",
+      "expected_tool": "get_weather",
+      "expected_tool_args": {"city": "北京"},
+      "expected_keywords": []
+    },
+    {
+      "id": "model-x20pro",
+      "question": "我家是 X20 Pro，滤网多久换一次？",
+      "expected_source": "X20 Pro 滤网维护说明.txt",
+      "expected_tool": "search_knowledge",
+      "expected_tool_args": {"scope": "X20 Pro"},
+      "expected_keywords": [["6个月", "半年"]]
+    },
+    {
+      "id": "model-t30",
+      "question": "T30 的滤网可以水洗吗？",
+      "expected_source": "T30 滤网维护说明.txt",
+      "expected_tool": "search_knowledge",
+      "expected_tool_args": {"scope": "T30"},
+      "expected_keywords": [["不支持水洗", "不能水洗", "不可以水洗", "不可水洗", "不能直接水洗"]]
+    },
+    {
+      "id": "model-unknown",
+      "question": "X99 的滤网怎么清洗？",
+      "agent_only": true,
+      "expected_tool": "search_knowledge",
+      "expected_tool_args": {"scope": "X99"},
+      "expected_keywords": [["没有 X99", "X99 的专属", "没有该型号", "暂无 X99", "没有找到 X99",
+                             "没有 X99 型号", "缺少 X99", "未收录", "暂无该型号",
+                             "知识库里暂时没有", "知识库中没有", "没有专属资料"]]
+    },
+    {
+      "id": "model-missing",
+      "question": "滤网可以水洗吗？",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["型号", "机型", "哪款", "哪个型号"]]
+    },
+    {
+      "id": "handoff-complaint",
+      "question": "我要投诉，机器用了三个月就坏了",
+      "agent_only": true,
+      "expected_tool": "escalate_to_human",
+      "expected_keywords": [["工单", "HD-"]]
+    },
+    {
+      "id": "visibility-newcomer",
+      "question": "扫地机器人长期不用要注意什么？拖布多久清洗一次？",
+      "role": "newcomer",
+      "expected_tool": "search_knowledge",
+      "forbidden_source": "扫地机器人使用与保养参考.txt"
+    },
+    {
+      "id": "faq-onboarding",
+      "question": "入职第一天需要准备什么材料？",
+      "expect_faq": true,
+      "expected_keywords": [["身份证", "照片"]]
+    },
+    {
+      "id": "process-reimburse",
+      "question": "报销怎么走？",
+      "expected_tool": "lookup_process",
+      "expected_keywords": [["报销单", "发票"]]
+    },
+    {
+      "id": "employee-reimburse",
+      "question": "报销找谁？",
+      "expected_tool": "find_employee",
+      "expected_keywords": [["刘洋", "财务部"]]
+    },
+    {
+      "id": "employee-salary-newcomer",
+      "question": "薪资调整应该找谁？",
+      "role": "newcomer",
+      "expected_tool": "find_employee",
+      "forbidden_keywords": ["张伟", "8011", "zhangwei@example.com"]
+    },
+    {
+      "id": "feishu-newcomer-week",
+      "question": "新人第一周要做哪些事？",
+      "expected_source": "新人第一周工作清单.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["工牌", "入职手续"], ["复盘", "反馈"]]
+    },
+    {
+      "id": "feishu-office-supplies",
+      "question": "行政仓库在哪，办公用品怎么领？",
+      "expected_source": "行政部办公用品申领说明.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["302"], ["申领单", "审批"]]
+    },
+    {
+      "id": "feishu-complaint-sla",
+      "question": "客户投诉 A 级要多久响应？",
+      "role": "staff",
+      "expected_source": "客服部客户投诉处理规范.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [["30 分钟", "30分钟"]]
+    },
+    {
+      "id": "dingtalk-strategy",
+      "question": "帮我在钉盘上搜索关于各部门中秋后战略安排",
+      "expected_tool": "search_dingtalk_files",
+      "expected_file": "客服部 2026 中秋后战略安排"
+    },
+    {
+      "id": "dingtalk-publisher",
+      "question": "周涛在群里发的资料",
+      "role": "staff",
+      "expected_tool": "search_dingtalk_files",
+      "expected_tool_args": {"publisher": "周涛"},
+      "expected_file": "供应链中心 2026 中秋后战略安排"
+    },
+    {
+      "id": "dingtalk-publisher-newcomer",
+      "question": "张伟在群里发的资料",
+      "role": "newcomer",
+      "expected_tool": "search_dingtalk_files",
+      "expect_no_answer": true,
+      "forbidden_keywords": ["薪资", "调薪", "绩效系数"]
+    },
+    {
+      "id": "validity-travel-hotel",
+      "question": "出差住宿能报销多少？",
+      "expected_source": "2026 年度差旅报销标准.txt",
+      "expected_tool": "search_knowledge",
+      "expected_keywords": [
+        ["450", "一线城市"],
+        ["2026-12-31", "2026年12月31日", "2026 年度", "2026年度", "年底"]
+      ]
+    },
+    {
+      "id": "weather-umbrella",
+      "question": "杭州今天要带伞吗？",
+      "expected_tool": "get_weather",
+      "expected_tool_args": {"city": "杭州"},
+      "expected_keywords": []
+    },
+    {
+      "id": "weather-clothing",
+      "question": "上海今天适合穿什么衣服？",
+      "expected_tool": "get_weather",
+      "expected_tool_args": {"city": "上海"},
+      "expected_keywords": []
+    },
+    {
+      "id": "out-of-scope-passport",
+      "question": "如何申请护照？",
+      "expect_no_answer": true
+    },
+    {
+      "id": "out-of-scope-stock",
+      "question": "今天A股行情怎么样？",
+      "expect_no_answer": true
+    },
+    {
+      "id": "out-of-scope-code",
+      "question": "用 Python 写一个快速排序",
+      "expect_no_answer": true
+    }
+  ]
+}
